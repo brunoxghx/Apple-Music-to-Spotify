@@ -8,7 +8,6 @@ This project provides scripts to transfer songs from your Apple Music library (e
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## ✨ Features
 - 📄 Extracts song names from an Apple Music XML library file.
