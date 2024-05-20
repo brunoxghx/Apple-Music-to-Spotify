@@ -2,6 +2,8 @@
 
 This project provides scripts to transfer songs from your Apple Music library (exported as an XML file) to a Spotify playlist. The process involves extracting song names from the Apple Music library XML file, storing them in an Excel file, and then using that Excel file to create a Spotify playlist with the corresponding songs.
 
+!Note - The Library Should Exported In XML Format
+
 ## 📋 Table of Contents
 - [Features](#features)
 - [Installation](#installation)
