@@ -6,6 +6,7 @@ Note - The Apple Music Library Should Be In XML Format
 
 ## 📋 Table of Contents
 - [Features](#features)
+- [Supported Platforms](#supportedplatforms)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -22,6 +23,10 @@ Note - The Apple Music Library Should Be In XML Format
 - 📚 Handles large music libraries by adding songs in chunks.
 - 🔄 Includes retry logic to handle network issues and API rate limits.
 
+## 🖥️ Supported Platforms
+![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white&style=for-the-badge)
+![Mac](https://img.shields.io/badge/Mac-000000?logo=apple&logoColor=white&style=for-the-badge)
+![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black&style=for-the-badge)
 
 ## 🛠️ Installation
 1. Clone this repository:
