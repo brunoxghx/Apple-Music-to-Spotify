@@ -1,6 +1,10 @@
 import xml.etree.ElementTree as ET
 import pandas as pd
 
+# Specify the path to your Apple Music XML library file
+xml_file = 'YOUR_APPLE_MUSIC_XML_LIBRARY'
+
+
 def extract_song_names_from_file(xml_file):
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -23,8 +27,6 @@ def extract_song_names_from_file(xml_file):
 
     return song_names
 
-# Specify the path to your Apple Music XML library file
-xml_file = 'Library.xml'
 
 # Extract song names from the XML file
 song_names = extract_song_names_from_file(xml_file)
@@ -34,7 +36,9 @@ song_names.sort()
 
 # Create a DataFrame and save it to an Excel file
 df = pd.DataFrame(song_names, columns=['Song Name'])
-excel_file = 'song_names.xlsx'
-df.to_excel(excel_file, index=False)
 
+# Specify the Excel sheet name
+excel_file = 'song_names.xlsx'
+
+df.to_excel(excel_file, index=False)
 print(f'Extracted {len(song_names)} song names, sorted them, and saved to {excel_file}')
