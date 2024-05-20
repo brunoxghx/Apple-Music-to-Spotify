@@ -9,7 +9,9 @@ Note - The Apple Music Library Should Be In XML Format
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Files](#files)
 - [Contributing](#contributing)
+- [Upcoming Updates](#upcoming-updates)
 
 ## ✨ Features
 - 📄 Extracts song names from an Apple Music XML library file.
@@ -70,6 +72,9 @@ We welcome contributions to enhance this project! If you have suggestions for im
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 6. Feel free to check the [issues page](https://github.com/jadhavsharad/Apple-Music-to-Spotify/issues).
+
+## 🔮 Upcoming Updates
+- **GUI:** We are planning to add a graphical user interface to make the process even more user-friendly.
 
 ## 🙏 Acknowledgments
 - [Spotipy](https://github.com/plamere/spotipy) for the Spotify Web API.
