@@ -68,7 +68,7 @@ We welcome contributions to enhance this project! If you have suggestions for im
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-6. Feel free to check the [issues page](https://github.com/yourusername/apple-music-to-spotify/issues).
+6. Feel free to check the [issues page](https://github.com/jadhavsharad/Apple-Music-to-Spotify/issues).
 
 ## 🙏 Acknowledgments
 - [Spotipy](https://github.com/plamere/spotipy) for the Spotify Web API.
