@@ -1,3 +1,6 @@
+# run the command below to install required libraries
+# pip install spotipy pandas openpyxl tenacity
+
 import xml.etree.ElementTree as ET
 import pandas as pd
 
