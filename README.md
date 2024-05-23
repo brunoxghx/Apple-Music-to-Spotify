@@ -79,7 +79,7 @@ We welcome contributions to enhance this project! If you have suggestions for im
 5. Open a Pull Request
 6. Feel free to check the [issues page](https://github.com/jadhavsharad/Apple-Music-to-Spotify/issues).
 
-## ‼️ SOMETIMES THIS SCRIPT MAY INCORRECT FEW WRONG SONGS SO MAKE SURE TO VERIFY THE PLAYLIST WE ARE WORKING ON THIS.
+## ‼️ SOMETIMES THIS SCRIPT MAY ADD INCORRECT WRONG SONGS SO MAKE SURE TO VERIFY THE PLAYLIST WE ARE WORKING ON THIS.
 
 ## 🔮 Upcoming Updates
 - **GUI:** We are planning to add a graphical user interface to make the process even more user-friendly.
