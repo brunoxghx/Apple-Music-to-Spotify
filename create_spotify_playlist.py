@@ -1,6 +1,5 @@
-# run the command below to install required libraries
-# pip install spotipy pandas openpyxl tenacity
-
+import argparse
+import configparser
 import pandas as pd
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -11,23 +10,17 @@ from tenacity import retry, wait_fixed, stop_after_attempt, RetryError
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Modify below Variables
-# Spotify API credentials
-SPOTIPY_CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID'
-SPOTIPY_CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
-SPOTIPY_REDIRECT_URI = 'http://localhost:3000/callback'
+# Read Spotify API credentials from the configuration file
+config = configparser.ConfigParser()
+config.read("config.ini")
 
-# Specify the path to your Excel file
-excel_file = 'YOUR_PATH_TO_EXCEL_FILE.xlsx'
+SPOTIPY_CLIENT_ID = config["spotify"]["client_id"]
+SPOTIPY_CLIENT_SECRET = config["spotify"]["client_secret"]
+SPOTIPY_REDIRECT_URI = config["spotify"]["redirect_uri"]
 
 # Add songs to the playlist in parts
 chunk_size = 25
 
-# Create a new Spotify playlist
-playlist_name = 'My New Playlist'
-playlist_description = 'Playlist created from songs.'
-
-# The main program starts here if you want to know scroll below
 # Authentication - without user authorization
 scope = 'playlist-modify-private'
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET,
@@ -60,6 +53,17 @@ def add_songs_to_playlist(playlist_id, track_uris):
 
 
 def main():
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Create a Spotify playlist from an Excel file of song names.")
+    parser.add_argument("excel_file", type=str, help="Path to the Excel file containing song names.")
+    parser.add_argument("playlist_name", type=str, help="Name of the new Spotify playlist.")
+    parser.add_argument("--playlist_description", type=str, default='', help="Description of the new Spotify playlist (optional).")
+    args = parser.parse_args()
+
+    excel_file = args.excel_file
+    playlist_name = args.playlist_name
+    playlist_description = args.playlist_description
+
     # Read song names from the Excel file
     logger.info(f"Reading song names from {excel_file}")
     song_names = read_song_names_from_excel(excel_file)
@@ -84,7 +88,6 @@ def main():
     num_chunks = (total_songs + chunk_size - 1) // chunk_size
     logger.info(f"Adding songs to the playlist in {num_chunks} parts")
 
-    # Add songs in parts
     for i in range(num_chunks):
         start_idx = i * chunk_size
         end_idx = min((i + 1) * chunk_size, total_songs)

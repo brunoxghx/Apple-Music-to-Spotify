@@ -1,12 +1,6 @@
-# run the command below to install required libraries
-# pip install spotipy pandas openpyxl tenacity
-
+import argparse
 import xml.etree.ElementTree as ET
 import pandas as pd
-
-# Specify the path to your Apple Music XML library file
-xml_file = 'YOUR_APPLE_MUSIC_XML_LIBRARY'
-
 
 def extract_song_names_from_file(xml_file):
     tree = ET.parse(xml_file)
@@ -30,18 +24,26 @@ def extract_song_names_from_file(xml_file):
 
     return song_names
 
+def main():
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description="Extract song names from an Apple Music XML library file.")
+    parser.add_argument("xml_file", type=str, help="Path to the Apple Music XML library file.")
+    parser.add_argument("output_file", type=str, help="Path to save the Excel file with extracted song names.")
+    args = parser.parse_args()
 
-# Extract song names from the XML file
-song_names = extract_song_names_from_file(xml_file)
+    xml_file = args.xml_file
+    output_file = args.output_file
 
-# Sort the song names alphabetically
-song_names.sort()
+    # Extract song names from the XML file
+    song_names = extract_song_names_from_file(xml_file)
 
-# Create a DataFrame and save it to an Excel file
-df = pd.DataFrame(song_names, columns=['Song Name'])
+    # Sort the song names alphabetically
+    song_names.sort()
 
-# Specify the Excel sheet name
-excel_file = 'song_names.xlsx'
+    # Create a DataFrame and save it to an Excel file
+    df = pd.DataFrame(song_names, columns=['Song Name'])
+    df.to_excel(output_file, index=False)
+    print(f'Extracted {len(song_names)} song names, sorted them, and saved to {output_file}')
 
-df.to_excel(excel_file, index=False)
-print(f'Extracted {len(song_names)} song names, sorted them, and saved to {excel_file}')
+if __name__ == "__main__":
+    main()
